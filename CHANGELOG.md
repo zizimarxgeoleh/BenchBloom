@@ -23,3 +23,9 @@ _Next patch notes are being collected here._
 ### Fixed
 - `report` lists the top overlaps by estimated Jaccard instead of file order.
 
+## [4.2.0] - 2025-10-07
+
+### Added
+- Worked examples (`examples/benchmark.jsonl`, `examples/training.jsonl`) plus
+  an end-to-end walkthrough in `examples/README.md`.
+- CI runs the full `index` / `report` assay on every push.
