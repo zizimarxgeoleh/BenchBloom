@@ -29,3 +29,10 @@ _Next patch notes are being collected here._
 - Worked examples (`examples/benchmark.jsonl`, `examples/training.jsonl`) plus
   an end-to-end walkthrough in `examples/README.md`.
 - CI runs the full `index` / `report` assay on every push.
+
+### Changed
+- The README states plainly what is finished and what is planned, and the
+  ROADMAP keeps the same honest ledger.
+
+## [3.0.0] - 2024-09-24
+
