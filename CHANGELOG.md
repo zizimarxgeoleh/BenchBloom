@@ -36,3 +36,9 @@ _Next patch notes are being collected here._
 
 ## [3.0.0] - 2024-09-24
 
+### Changed
+- Signature files are plain text by design: one record per line, K
+  space-separated 64-bit minima, inspectable with any tool.
+- `bloomdex` streams the corpus so a specimen larger than memory still fits
+  on the slide.
+
