@@ -16,3 +16,10 @@ _Next patch notes are being collected here._
 - `--seed` passthrough documented as the deterministic splitmix64 stream that
   makes spore prints reproducible across machines.
 
+### Changed
+- Short records (fewer tokens than `--ngram`) degrade to a single shingle
+  instead of dropping out of the assay.
+
+### Fixed
+- `report` lists the top overlaps by estimated Jaccard instead of file order.
+
