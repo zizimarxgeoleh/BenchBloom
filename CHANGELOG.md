@@ -55,3 +55,9 @@ _Next patch notes are being collected here._
 
 ## [1.0.0] - 2022-11-08
 
+### Added
+- Stable CLI contract: `normalize`, `scan`, `index`, `report`.
+- `--top` keeps only the strongest pairs in the JSON scan report and
+  `--jaccard-only` switches the trigger metric back to Jaccard.
+
+## [0.9.0] - 2022-03-15
