@@ -42,3 +42,9 @@ _Next patch notes are being collected here._
 - `bloomdex` streams the corpus so a specimen larger than memory still fits
   on the slide.
 
+## [2.1.0] - 2023-11-14
+
+### Added
+- `report` subcommand rendering a saved `match.tsv` into a human summary.
+- JSON summary fields: contaminated reference items, contamination rate and
+  peak overlap.
