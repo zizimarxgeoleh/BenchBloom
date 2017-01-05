@@ -48,3 +48,10 @@ _Next patch notes are being collected here._
 - `report` subcommand rendering a saved `match.tsv` into a human summary.
 - JSON summary fields: contaminated reference items, contamination rate and
   peak overlap.
+
+### Changed
+- The verdict grading (`CLEAN`, `TRACE`, `ELEVATED`, `HEAVY`) applies to both
+  the exact `scan` and the engine-backed `index` paths.
+
+## [1.0.0] - 2022-11-08
+
