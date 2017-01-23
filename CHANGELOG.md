@@ -61,3 +61,10 @@ _Next patch notes are being collected here._
   `--jaccard-only` switches the trigger metric back to Jaccard.
 
 ## [0.9.0] - 2022-03-15
+
+### Added
+- `bloomdex self` finds near-duplicate records inside a single signature set,
+  which turns the microscope into a deduplication pass for one corpus.
+
+## [0.8.0] - 2021-07-20
+
