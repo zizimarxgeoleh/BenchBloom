@@ -68,3 +68,9 @@ _Next patch notes are being collected here._
 
 ## [0.8.0] - 2021-07-20
 
+### Added
+- `--k` signature width, `--ngram` shingle size and `--min-token` filters on
+  the engine commands.
+- Deterministic splitmix64 seeding so two runs on two machines produce
+  identical signatures.
+
