@@ -74,3 +74,9 @@ _Next patch notes are being collected here._
 - Deterministic splitmix64 seeding so two runs on two machines produce
   identical signatures.
 
+## [0.7.0] - 2020-11-03
+
+### Added
+- `index` orchestrates the full assay: normalize, sign and match through the
+  C++ engine, with a graceful error when the binary is missing.
+- Streamed line processing in `bloomdex` so input size is not bounded by RAM.
