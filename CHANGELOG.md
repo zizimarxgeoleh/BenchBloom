@@ -80,3 +80,10 @@ _Next patch notes are being collected here._
 - `index` orchestrates the full assay: normalize, sign and match through the
   C++ engine, with a graceful error when the binary is missing.
 - Streamed line processing in `bloomdex` so input size is not bounded by RAM.
+
+## [0.6.0] - 2020-02-11
+
+### Added
+- `bloomdex match` scores candidate overlap between two signature sets and
+  writes a tab-separated report.
+- `--threshold` filters matches on estimated Jaccard.
