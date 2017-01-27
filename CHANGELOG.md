@@ -87,3 +87,9 @@ _Next patch notes are being collected here._
 - `bloomdex match` scores candidate overlap between two signature sets and
   writes a tab-separated report.
 - `--threshold` filters matches on estimated Jaccard.
+
+## [0.5.0] - 2019-06-04
+
+### Added
+- C++17 engine `bloomdex` with `sign`: token-shingle MinHash signatures drawn
+  from universal hashes over a base FNV-1a value.
