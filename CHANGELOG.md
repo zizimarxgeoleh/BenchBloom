@@ -93,3 +93,10 @@ _Next patch notes are being collected here._
 ### Added
 - C++17 engine `bloomdex` with `sign`: token-shingle MinHash signatures drawn
   from universal hashes over a base FNV-1a value.
+- Direct `g++` / `clang++` build via `Makefile` and `cpp/build.sh`, no CMake.
+
+## [0.4.0] - 2018-10-16
+
+### Added
+- `--field` and `--id-field` select which JSON keys feed a record and what it
+  is called in reports.
