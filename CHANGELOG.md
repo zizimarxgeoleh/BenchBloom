@@ -100,3 +100,9 @@ _Next patch notes are being collected here._
 ### Added
 - `--field` and `--id-field` select which JSON keys feed a record and what it
   is called in reports.
+- Tolerant JSONL parsing: a malformed line is skipped, never fatal.
+
+## [0.3.0] - 2018-03-06
+
+### Added
+- Containment metric `|A∩B| / |A|`, which catches a short benchmark item
