@@ -40,3 +40,14 @@ is a foundation). Just a botanist, a microscope, and a drawer of honest labels.
 ---
 
 ## Why a botanical metaphor, and why it is not just decoration
+
+The metaphor earns its keep because contamination detection genuinely behaves
+like comparing biological specimens:
+
+| Botany | BenchBloom |
+| --- | --- |
+| Pressing & drying a specimen | Normalization: NFKC fold, lowercase, collapse whitespace, drop punctuation |
+| A leaf's venation pattern | The set of token n-gram *shingles* of a record |
+| Two leaves sharing venation | High **Jaccard** / **containment** between shingle sets |
+| A spore print on paper | A **MinHash signature**: K min-hashes standing in for the whole set |
+| Matching spore prints under glass | Estimated Jaccard = fraction of matching min-positions |
