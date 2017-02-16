@@ -51,3 +51,14 @@ like comparing biological specimens:
 | Two leaves sharing venation | High **Jaccard** / **containment** between shingle sets |
 | A spore print on paper | A **MinHash signature**: K min-hashes standing in for the whole set |
 | Matching spore prints under glass | Estimated Jaccard = fraction of matching min-positions |
+| A short cutting embedded in a larger plant | **Containment**: a benchmark item copied inside a long training doc |
+
+Containment is the metaphor that matters most. Real leakage rarely looks like
+two identical documents. It looks like one small benchmark question pressed flat
+inside a sprawling web-scraped paragraph. Jaccard punishes that size mismatch;
+containment does not. BenchBloom triggers on containment by default and reports
+Jaccard alongside it, so you can see both the strict and the sensitive reading.
+
+---
+
+## The bench layout
