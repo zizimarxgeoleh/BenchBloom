@@ -85,3 +85,14 @@ BenchBloom/
 ├── .github/workflows/ci.yml   # compile C++, syntax-check Python, smoke test
 ├── Makefile                   # make  ->  cpp/bloomdex
 ├── pyproject.toml
+├── CHANGELOG.md · ROADMAP.md · LICENSE
+```
+
+![lattice](docs/assets/lattice.svg)
+
+---
+
+## Preparing the bench (build the microscope)
+
+The Python botanist needs nothing but a standard Python 3.8+ interpreter. The
+C++ microscope must be ground from its single translation unit. Pick either
