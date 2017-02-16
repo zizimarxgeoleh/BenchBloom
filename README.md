@@ -62,3 +62,14 @@ Jaccard alongside it, so you can see both the strict and the sensitive reading.
 ---
 
 ## The bench layout
+
+```
+BenchBloom/
+├── benchbloom/                # the botanist (pure stdlib Python)
+│   ├── __init__.py
+│   ├── __main__.py            # python -m benchbloom
+│   ├── cli.py                 # normalize | scan | index | report
+│   ├── ingest.py              # JSONL/text loaders + normalization
+│   ├── metrics.py             # exact n-gram shingling, Jaccard, containment
+│   └── engine.py              # bridge to the C++ microscope
+├── cpp/                       # the microscope (C++17, no deps)
