@@ -163,3 +163,14 @@ The **verdict** grades the contamination rate on a simple herbarium scale:
 ## The microscope reading (MinHash at scale)
 
 Exact shingling is O(unique-shingles) in memory and quadratic in specimens. When
+the corpus grows past comfort, hand it to the microscope. The `index` subcommand
+orchestrates the whole assay: press both specimens, take their spore prints, and
+overlay the prints.
+
+```bash
+python -m benchbloom index \
+  --ref examples/benchmark.jsonl \
+  --subject examples/training.jsonl \
+  --field text --k 128 --ngram 4 --threshold 0.4 \
+  --out match.tsv
+
