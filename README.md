@@ -174,3 +174,14 @@ python -m benchbloom index \
   --field text --k 128 --ngram 4 --threshold 0.4 \
   --out match.tsv
 
+python -m benchbloom report match.tsv
+```
+
+Under the hood the botanist:
+
+1. Loads and normalizes both corpora, writing one dried record per line.
+2. Calls `bloomdex sign` on each to produce a signature file — `K` 64-bit
+   min-hashes per record, drawn from `K` universal hash seeds over the record's
+   shingle set.
+3. Calls `bloomdex match` to compare every reference print against every subject
+   print, emitting a TSV of pairs whose *estimated* Jaccard clears the
