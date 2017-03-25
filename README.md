@@ -207,3 +207,15 @@ cpp/bloomdex match --ref ref.sig --subject sub.sig --out match.tsv --threshold 0
 cpp/bloomdex self  --input sub.sig --out dups.tsv --threshold 0.8
 ```
 
+A signature line is deliberately plain text so you can inspect it with any tool:
+
+```
+r42<TAB>318<TAB>8823...  199...  40..  (K space-separated 64-bit min-hashes)
+```
+
+---
+
+## How the spore print is actually taken
+
+For the curious, here is the honest mechanism, no hand-waving:
+
