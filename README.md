@@ -230,3 +230,14 @@ For the curious, here is the honest mechanism, no hand-waving:
   machines produce identical prints — a property you want in forensics.
 - **Min selection.** For each of the `K` functions we keep the minimum permuted
   value across all shingles. That vector of `K` minima is the signature.
+- **Estimate.** The estimated Jaccard between two records is simply the fraction
+  of the `K` positions where their minima agree — the classic MinHash identity.
+
+Short records (fewer tokens than `ngram`) degrade gracefully: the whole record
+becomes a single shingle rather than vanishing from the assay.
+
+---
+
+## Command reference
+
+### `benchbloom normalize`
