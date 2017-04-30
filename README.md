@@ -241,3 +241,14 @@ becomes a single shingle rather than vanishing from the assay.
 ## Command reference
 
 ### `benchbloom normalize`
+Press and dry a corpus into one normalized record per line — the format the
+microscope consumes.
+
+```bash
+python -m benchbloom normalize input.jsonl --out dried.txt --field text --field title
+```
+
+### `benchbloom scan`
+Exact n-gram / Jaccard / containment report, Python only. Flags on containment
+by default; pass `--jaccard-only` to trigger on Jaccard instead. `--top N` keeps
+only the N strongest pairs in the JSON body.
