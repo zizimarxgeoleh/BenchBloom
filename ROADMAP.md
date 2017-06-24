@@ -19,3 +19,5 @@ under "Planned" is aspirational and not yet built.
   signs, and matches through the engine bridge in `benchbloom/engine.py`.
 
 ## Planned (not yet implemented)
+
+- [ ] LSH banding to prune the O(N·M) match loop toward near-linear behavior.
