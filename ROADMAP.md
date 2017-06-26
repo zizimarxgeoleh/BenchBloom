@@ -21,3 +21,4 @@ under "Planned" is aspirational and not yet built.
 ## Planned (not yet implemented)
 
 - [ ] LSH banding to prune the O(N·M) match loop toward near-linear behavior.
+- [ ] Streaming signature format with a compact binary encoding.
