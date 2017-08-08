@@ -23,3 +23,5 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/zizimarxgeoleh/BenchBloom"
+Changelog = "https://github.com/zizimarxgeoleh/BenchBloom/blob/main/CHANGELOG.md"
+
