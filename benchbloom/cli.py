@@ -25,3 +25,14 @@ def _cmd_normalize(args: argparse.Namespace) -> int:
     print(f"normalized {n} records -> {args.out}")
     return 0
 
+
+def _cmd_scan(args: argparse.Namespace) -> int:
+    ref = ingest.load(args.ref, fields=args.field, id_field=args.id_field)
+    sub = ingest.load(args.subject, fields=args.field, id_field=args.id_field)
+    ref_norm = [(r.rid, ingest.normalize(r.text)) for r in ref]
+    sub_norm = [(s.rid, ingest.normalize(s.text)) for s in sub]
+
+    ref_idx = metrics.build_shingle_index(ref_norm, args.ngram)
+    sub_idx = metrics.build_shingle_index(sub_norm, args.ngram)
+    pairs = metrics.cross_leakage(ref_idx, sub_idx, threshold=args.threshold,
+                                  use_containment=not args.jaccard_only)
