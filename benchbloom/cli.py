@@ -36,3 +36,13 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     sub_idx = metrics.build_shingle_index(sub_norm, args.ngram)
     pairs = metrics.cross_leakage(ref_idx, sub_idx, threshold=args.threshold,
                                   use_containment=not args.jaccard_only)
+    summary = metrics.summarize(pairs, len(ref_idx))
+
+    report = {
+        "summary": summary,
+        "pairs": [vars(p) for p in pairs[: args.top]] if args.top else [vars(p) for p in pairs],
+    }
+    text = json.dumps(report, indent=2)
+    if args.out:
+        Path(args.out).write_text(text, encoding="utf-8")
+        print(f"scan report -> {args.out}")
