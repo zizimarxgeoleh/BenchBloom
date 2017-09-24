@@ -46,3 +46,13 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     if args.out:
         Path(args.out).write_text(text, encoding="utf-8")
         print(f"scan report -> {args.out}")
+    else:
+        print(text)
+    _print_verdict(summary)
+    return 0
+
+
+def _cmd_index(args: argparse.Namespace) -> int:
+    eng = engine.find_engine(args.engine)
+    if not eng:
+        print("error: bloomdex engine not found. Build it with cpp/build.sh or make.",
