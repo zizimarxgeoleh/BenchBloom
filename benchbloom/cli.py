@@ -67,3 +67,13 @@ def _cmd_index(args: argparse.Namespace) -> int:
     ref_norm = workdir / "ref.norm.txt"
     sub_norm = workdir / "subject.norm.txt"
     ingest.write_normalized(ref, ref_norm)
+    ingest.write_normalized(sub, sub_norm)
+
+    ref_sig = workdir / "ref.sig"
+    sub_sig = workdir / "subject.sig"
+    print(engine.sign(eng, str(ref_norm), str(ref_sig), k=args.k, ngram=args.ngram))
+    print(engine.sign(eng, str(sub_norm), str(sub_sig), k=args.k, ngram=args.ngram))
+
+    match_out = Path(args.out) if args.out else workdir / "match.tsv"
+    print(engine.match(eng, str(ref_sig), str(sub_sig), str(match_out),
+                       threshold=args.threshold))
