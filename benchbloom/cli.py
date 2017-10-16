@@ -108,3 +108,13 @@ def _cmd_report(args: argparse.Namespace) -> int:
 def _print_verdict(summary: dict) -> None:
     rate = summary.get("contamination_rate", 0.0)
     if rate == 0.0:
+        verdict = "CLEAN — no leakage above threshold"
+    elif rate < 0.05:
+        verdict = "TRACE — isolated overlap, inspect flagged pairs"
+    elif rate < 0.25:
+        verdict = "ELEVATED — meaningful contamination present"
+    else:
+        verdict = "HEAVY — benchmark likely compromised"
+    print(f"verdict: {verdict} (rate={rate})", file=sys.stderr)
+
+
