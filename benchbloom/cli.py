@@ -128,3 +128,14 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument("--field", action="append", help="JSON text field(s) to read")
         sp.add_argument("--id-field", help="JSON field to use as record id")
         sp.add_argument("--ngram", type=int, default=5, help="token n-gram size")
+
+    pn = sub.add_parser("normalize", help="ingest and normalize a corpus")
+    pn.add_argument("input")
+    pn.add_argument("--out", required=True)
+    pn.add_argument("--field", action="append")
+    pn.add_argument("--id-field")
+    pn.add_argument("--keep-punct", action="store_true")
+    pn.set_defaults(func=_cmd_normalize)
+
+    ps = sub.add_parser("scan", help="exact Python n-gram/Jaccard leakage report")
+    ps.add_argument("--ref", required=True)
