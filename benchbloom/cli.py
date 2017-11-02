@@ -139,3 +139,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     ps = sub.add_parser("scan", help="exact Python n-gram/Jaccard leakage report")
     ps.add_argument("--ref", required=True)
+    ps.add_argument("--subject", required=True)
+    ps.add_argument("--out")
+    ps.add_argument("--threshold", type=float, default=0.3)
+    ps.add_argument("--top", type=int, default=0)
+    ps.add_argument("--jaccard-only", action="store_true")
+    add_common(ps)
+    ps.set_defaults(func=_cmd_scan)
+
+    pi = sub.add_parser("index", help="orchestrate the C++ MinHash engine")
+    pi.add_argument("--ref", required=True)
