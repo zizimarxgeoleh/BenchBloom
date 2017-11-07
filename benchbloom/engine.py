@@ -5,3 +5,9 @@ wraps the `sign` / `match` / `self` subcommands with subprocess calls plus
 parsing of the tab-separated report files they emit.
 """
 
+from __future__ import annotations
+
+import shutil
+import subprocess
+from dataclasses import dataclass
+from pathlib import Path
