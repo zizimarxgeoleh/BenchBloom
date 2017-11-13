@@ -29,3 +29,9 @@ def find_engine(explicit: Optional[str] = None) -> Optional[str]:
     here = Path(__file__).resolve().parent.parent
     for cand in (here / "cpp" / "bloomdex", here / "cpp" / "bloomdex.exe",
                  here / "build" / "bloomdex", here / "build" / "bloomdex.exe"):
+        if cand.exists():
+            return str(cand)
+    return None
+
+
+def _run(engine: str, args: List[str]) -> str:
