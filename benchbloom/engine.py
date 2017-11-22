@@ -47,3 +47,9 @@ def sign(engine: str, input_path: str, out_path: str, *, k: int = 128,
     """Build MinHash signatures for a normalized corpus."""
     return _run(engine, ["sign", "--input", input_path, "--out", out_path,
                          "--k", str(k), "--ngram", str(ngram),
+                         "--min-token", str(min_token), "--seed", str(seed)])
+
+
+def match(engine: str, ref_sig: str, subject_sig: str, out_path: str,
+          *, threshold: float = 0.5) -> str:
+    """Score candidate overlap between reference and subject signatures."""
