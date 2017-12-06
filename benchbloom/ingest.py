@@ -9,3 +9,10 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Iterable, Iterator, List
+
+_WS_RE = re.compile(r"\s+")
+_NONALNUM_RE = re.compile(r"[^0-9a-z ]+")
