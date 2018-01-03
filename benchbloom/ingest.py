@@ -62,3 +62,11 @@ def read_jsonl(path: Path, fields: List[str], id_field: str | None = None) -> It
             line = line.strip()
             if not line:
                 continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                # Tolerate the occasional broken line rather than aborting a scan.
+                continue
+            if not isinstance(obj, dict):
+                obj = {"text": str(obj)}
+            text = _extract_text(obj, fields) if fields else str(obj.get("text", ""))
