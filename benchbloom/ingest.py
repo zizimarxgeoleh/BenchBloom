@@ -78,3 +78,10 @@ def read_text(path: Path) -> Iterator[Record]:
     """Stream a plain-text file: one record per non-empty line."""
     with path.open("r", encoding="utf-8") as fh:
         for i, line in enumerate(fh):
+            line = line.rstrip("\n")
+            if line.strip():
+                yield Record(rid=f"t{i}", text=line, meta={})
+
+
+def load(path: str | Path, *, fields: Iterable[str] | None = None,
+         id_field: str | None = None) -> List[Record]:
