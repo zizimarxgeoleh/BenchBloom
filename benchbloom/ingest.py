@@ -70,3 +70,11 @@ def read_jsonl(path: Path, fields: List[str], id_field: str | None = None) -> It
             if not isinstance(obj, dict):
                 obj = {"text": str(obj)}
             text = _extract_text(obj, fields) if fields else str(obj.get("text", ""))
+            rid = str(obj.get(id_field, f"j{i}")) if id_field else f"j{i}"
+            yield Record(rid=rid, text=text, meta={k: obj[k] for k in obj if k not in fields})
+
+
+def read_text(path: Path) -> Iterator[Record]:
+    """Stream a plain-text file: one record per non-empty line."""
+    with path.open("r", encoding="utf-8") as fh:
+        for i, line in enumerate(fh):
