@@ -21,3 +21,10 @@ def shingles(tokens: Sequence[str], n: int) -> Set[str]:
     return {"\x1f".join(tokens[i : i + n]) for i in range(len(tokens) - n + 1)}
 
 
+def jaccard(a: Set[str], b: Set[str]) -> float:
+    """Exact Jaccard similarity |A∩B| / |A∪B|."""
+    if not a and not b:
+        return 0.0
+    inter = len(a & b)
+    union = len(a | b)
+    return inter / union if union else 0.0
