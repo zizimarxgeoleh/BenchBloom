@@ -42,3 +42,10 @@ class LeakPair:
     ref_id: str
     subject_id: str
     jaccard: float
+    containment: float
+
+
+def _tokenize(text: str) -> List[str]:
+    return text.split()
+
+
