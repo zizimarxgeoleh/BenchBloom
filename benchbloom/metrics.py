@@ -35,3 +35,10 @@ def containment(a: Set[str], b: Set[str]) -> float:
     if not a:
         return 0.0
     return len(a & b) / len(a)
+
+
+@dataclass
+class LeakPair:
+    ref_id: str
+    subject_id: str
+    jaccard: float
