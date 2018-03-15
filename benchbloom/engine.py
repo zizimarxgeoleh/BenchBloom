@@ -64,3 +64,14 @@ class MatchRow:
     jaccard: float
 
 
+def parse_match_report(path: str | Path) -> List[MatchRow]:
+    """Parse the TSV report produced by `bloomdex match`."""
+    rows: List[MatchRow] = []
+    p = Path(path)
+    with p.open("r", encoding="utf-8") as fh:
+        header = fh.readline()  # ref_id\tsubject_id\tjaccard
+        if not header:
+            return rows
+        for line in fh:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) == 3:
