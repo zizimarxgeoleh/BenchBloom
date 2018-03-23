@@ -64,3 +64,18 @@ struct HashSeed {
     std::uint64_t b;
 };
 
+static std::vector<HashSeed> make_seeds(std::size_t k, std::uint64_t seed) {
+    std::vector<HashSeed> seeds(k);
+    std::uint64_t s = seed ? seed : 0xB100Du;
+    for (std::size_t i = 0; i < k; ++i) {
+        std::uint64_t a = splitmix64(s) % (kMersennePrime - 1) + 1; // non-zero
+        std::uint64_t b = splitmix64(s) % kMersennePrime;
+        seeds[i] = HashSeed{a, b};
+    }
+    return seeds;
+}
+
+static inline std::uint64_t permute(std::uint64_t x, const HashSeed& hs) {
+    // 128-bit intermediate via __uint128_t keeps the modular multiply exact.
+    unsigned __int128 v = static_cast<unsigned __int128>(hs.a) * (x % kMersennePrime) + hs.b;
+    return static_cast<std::uint64_t>(v % kMersennePrime);
