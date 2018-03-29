@@ -79,3 +79,19 @@ static inline std::uint64_t permute(std::uint64_t x, const HashSeed& hs) {
     // 128-bit intermediate via __uint128_t keeps the modular multiply exact.
     unsigned __int128 v = static_cast<unsigned __int128>(hs.a) * (x % kMersennePrime) + hs.b;
     return static_cast<std::uint64_t>(v % kMersennePrime);
+}
+
+// ---- tokenization ----------------------------------------------------------
+
+// Lowercase, split on non-alphanumeric. Simple, locale-free, fast.
+static std::vector<std::string> tokenize(const std::string& line, std::size_t min_token) {
+    std::vector<std::string> out;
+    std::string cur;
+    cur.reserve(24);
+    for (char ch : line) {
+        unsigned char c = static_cast<unsigned char>(ch);
+        if (std::isalnum(c)) {
+            cur.push_back(static_cast<char>(std::tolower(c)));
+        } else if (!cur.empty()) {
+            if (cur.size() >= min_token) out.push_back(cur);
+            cur.clear();
