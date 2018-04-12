@@ -171,3 +171,19 @@ static Args parse_args(int argc, char** argv, int from) {
 }
 
 // ---- signature record I/O --------------------------------------------------
+
+struct SigRecord {
+    std::string id;
+    std::uint64_t token_count = 0;
+    std::vector<std::uint64_t> sig;
+};
+
+static void write_sig(std::ostream& os, const SigRecord& r) {
+    os << r.id << '\t' << r.token_count << '\t';
+    for (std::size_t i = 0; i < r.sig.size(); ++i) {
+        if (i) os << ' ';
+        os << r.sig[i];
+    }
+    os << '\n';
+}
+
