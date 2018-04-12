@@ -156,3 +156,18 @@ struct Args {
 
 static Args parse_args(int argc, char** argv, int from) {
     Args a;
+    for (int i = from; i < argc; ++i) {
+        std::string tok = argv[i];
+        if (tok.rfind("--", 0) == 0) {
+            std::string key = tok.substr(2);
+            if (i + 1 < argc && std::string(argv[i + 1]).rfind("--", 0) != 0) {
+                a.kv.emplace(key, argv[++i]);
+            } else {
+                a.kv.emplace(key, "1");
+            }
+        }
+    }
+    return a;
+}
+
+// ---- signature record I/O --------------------------------------------------
