@@ -233,3 +233,18 @@ static int cmd_sign(const Args& a) {
     std::uint64_t idx = 0;
     while (std::getline(in, line)) {
         auto tokens = tokenize(line, min_token);
+        if (tokens.empty()) { ++idx; continue; }
+        SigRecord r;
+        r.id = "r" + std::to_string(idx);
+        r.token_count = tokens.size();
+        r.sig = signature(tokens, ngram, seeds);
+        write_sig(ofs, r);
+        ++idx;
+    }
+    std::cerr << "sign: wrote signatures for " << idx << " records (k=" << k
+              << ", ngram=" << ngram << ")\n";
+    return 0;
+}
+
+static std::vector<SigRecord> load_sigs(const std::string& path, int& err) {
+    std::vector<SigRecord> recs;
