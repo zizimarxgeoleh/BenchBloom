@@ -217,3 +217,19 @@ static int cmd_sign(const Args& a) {
     if (input.empty() || out.empty()) {
         std::cerr << "sign: --input and --out required\n";
         return 2;
+    }
+    std::size_t k = static_cast<std::size_t>(a.geti("k", 128));
+    std::size_t ngram = static_cast<std::size_t>(a.geti("ngram", 5));
+    std::size_t min_token = static_cast<std::size_t>(a.geti("min-token", 1));
+    std::uint64_t seed = static_cast<std::uint64_t>(a.geti("seed", 0));
+
+    std::ifstream in(input);
+    if (!in) { std::cerr << "sign: cannot open input: " << input << "\n"; return 3; }
+    std::ofstream ofs(out);
+    if (!ofs) { std::cerr << "sign: cannot open out: " << out << "\n"; return 3; }
+
+    auto seeds = make_seeds(k, seed);
+    std::string line;
+    std::uint64_t idx = 0;
+    while (std::getline(in, line)) {
+        auto tokens = tokenize(line, min_token);
