@@ -248,3 +248,19 @@ static int cmd_sign(const Args& a) {
 
 static std::vector<SigRecord> load_sigs(const std::string& path, int& err) {
     std::vector<SigRecord> recs;
+    std::ifstream in(path);
+    if (!in) { err = 3; return recs; }
+    std::string line;
+    while (std::getline(in, line)) {
+        if (line.empty()) continue;
+        SigRecord r;
+        if (read_sig_line(line, r)) recs.push_back(std::move(r));
+    }
+    err = 0;
+    return recs;
+}
+
+static int cmd_match(const Args& a) {
+    std::string ref = a.get("ref");
+    std::string subject = a.get("subject");
+    std::string out = a.get("out");
