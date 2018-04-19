@@ -279,3 +279,18 @@ static int cmd_match(const Args& a) {
 
     std::ofstream ofs(out);
     if (!ofs) { std::cerr << "match: cannot open out\n"; return 3; }
+    ofs << "ref_id\tsubject_id\tjaccard\n";
+
+    std::uint64_t pairs = 0, hits = 0;
+    for (const auto& r : R) {
+        double best = 0.0;
+        std::string best_id;
+        for (const auto& s : S) {
+            double j = estimate_jaccard(r.sig, s.sig);
+            ++pairs;
+            if (j >= threshold) {
+                ofs << r.id << '\t' << s.id << '\t' << j << '\n';
+                ++hits;
+            }
+            if (j > best) { best = j; best_id = s.id; }
+        }
