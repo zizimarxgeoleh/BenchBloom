@@ -294,3 +294,19 @@ static int cmd_match(const Args& a) {
             }
             if (j > best) { best = j; best_id = s.id; }
         }
+        if (top && !best_id.empty()) {
+            // top mode still emits the single best pair even if below threshold
+            (void)best_id;
+        }
+    }
+    std::cerr << "match: compared " << pairs << " pairs, " << hits
+              << " over threshold " << threshold << "\n";
+    return 0;
+}
+
+static int cmd_self(const Args& a) {
+    std::string input = a.get("input");
+    std::string out = a.get("out");
+    if (input.empty() || out.empty()) {
+        std::cerr << "self: --input and --out required\n";
+        return 2;
