@@ -3,3 +3,5 @@
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SRC="$HERE/bloomdex.cpp"
+OUT="$HERE/bloomdex"
