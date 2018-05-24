@@ -106,3 +106,22 @@ _Next patch notes are being collected here._
 
 ### Added
 - Containment metric `|A∩B| / |A|`, which catches a short benchmark item
+  pressed inside a long training document.
+- Containment is the default trigger; `--jaccard-only` restores the strict
+  reading.
+
+## [0.2.0] - 2017-09-12
+
+### Added
+- Exact n-gram shingling with Jaccard similarity over token windows.
+- `scan` subcommand with a JSON report and the herbarium verdict scale.
+
+## [0.1.0] - 2017-02-14
+
+### Added
+- JSONL and plain-text ingestion into uniform records.
+- Normalization: NFKC fold, lowercase, collapse whitespace and optional
+  punctuation stripping.
+- `normalize` writes the one-record-per-line dried format used downstream.
+
+<!-- draft note 1 -->
