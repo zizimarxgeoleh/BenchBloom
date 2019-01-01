@@ -7,3 +7,8 @@ Two tiny corpora ship here so you can watch benchbloom flag contamination:
   and `t5` deliberately paraphrase or copy benchmark items `b2`, `b4`, and `b1`.
 
 ## Exact Python scan (no compiler needed)
+
+```bash
+python -m benchbloom scan \
+  --ref examples/benchmark.jsonl \
+  --subject examples/training.jsonl \
