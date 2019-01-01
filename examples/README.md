@@ -12,3 +12,8 @@ Two tiny corpora ship here so you can watch benchbloom flag contamination:
 python -m benchbloom scan \
   --ref examples/benchmark.jsonl \
   --subject examples/training.jsonl \
+  --field text --ngram 4 --threshold 0.3
+```
+
+You should see `b1`, `b2`, and `b4` flagged with high containment, and a
+`verdict:` line printed to stderr.
