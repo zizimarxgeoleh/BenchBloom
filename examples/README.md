@@ -17,3 +17,9 @@ python -m benchbloom scan \
 
 You should see `b1`, `b2`, and `b4` flagged with high containment, and a
 `verdict:` line printed to stderr.
+
+## MinHash engine path (requires the C++ build)
+
+```bash
+# 1) build the engine
+make            # or: bash cpp/build.sh
