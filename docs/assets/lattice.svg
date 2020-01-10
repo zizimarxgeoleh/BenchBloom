@@ -8,3 +8,8 @@
     <radialGradient id="sub" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0" stop-color="#f6a5c0" stop-opacity="0.85"/>
       <stop offset="1" stop-color="#c65b7c" stop-opacity="0.15"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="520" height="320" fill="#101712"/>
+  <text x="20" y="30" fill="#a9d9b2" font-family="monospace" font-size="15">signature lattice · shared shingles glow</text>
