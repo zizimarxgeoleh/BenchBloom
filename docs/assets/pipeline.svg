@@ -10,3 +10,9 @@
       <stop offset="0.6" stop-color="#f6a5c0"/>
       <stop offset="1" stop-color="#c65b7c"/>
     </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="0.6"/></filter>
+  </defs>
+
+  <rect width="720" height="240" fill="#0f1a12"/>
+  <text x="24" y="34" fill="#a9d9b2" font-family="monospace" font-size="16">benchbloom · contamination forensics</text>
+
