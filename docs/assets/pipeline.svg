@@ -42,3 +42,9 @@
       <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="2.6s" repeatCount="indefinite"/>
     </circle>
   </g>
+
+  <!-- blooming flower at the "match" node -->
+  <g transform="translate(640,120)" filter="url(#soft)">
+    <line x1="0" y1="30" x2="0" y2="70" stroke="url(#stem)" stroke-width="4"/>
+    <g>
+      <g fill="url(#petal)">
