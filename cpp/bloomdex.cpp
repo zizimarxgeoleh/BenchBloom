@@ -310,3 +310,45 @@ static int cmd_self(const Args& a) {
     if (input.empty() || out.empty()) {
         std::cerr << "self: --input and --out required\n";
         return 2;
+    }
+    double threshold = a.getd("threshold", 0.8);
+    int err = 0;
+    auto recs = load_sigs(input, err);
+    if (err) { std::cerr << "self: cannot read input\n"; return 3; }
+    std::ofstream ofs(out);
+    if (!ofs) { std::cerr << "self: cannot open out\n"; return 3; }
+    ofs << "id_a\tid_b\tjaccard\n";
+    std::uint64_t hits = 0;
+    for (std::size_t i = 0; i < recs.size(); ++i) {
+        for (std::size_t j = i + 1; j < recs.size(); ++j) {
+            double jc = estimate_jaccard(recs[i].sig, recs[j].sig);
+            if (jc >= threshold) {
+                ofs << recs[i].id << '\t' << recs[j].id << '\t' << jc << '\n';
+                ++hits;
+            }
+        }
+    }
+    std::cerr << "self: " << hits << " near-duplicate pairs at threshold " << threshold << "\n";
+    return 0;
+}
+
+static void usage() {
+    std::cerr <<
+        "bloomdex — benchbloom C++17 shingle/MinHash engine\n"
+        "usage:\n"
+        "  bloomdex sign  --input F --out F [--k 128] [--ngram 5] [--min-token 1] [--seed N]\n"
+        "  bloomdex match --ref F --subject F --out F [--threshold 0.5] [--top 0]\n"
+        "  bloomdex self  --input F --out F [--threshold 0.8]\n";
+}
+
+} // namespace bb
+
+int main(int argc, char** argv) {
+    if (argc < 2) { bb::usage(); return 2; }
+    std::string cmd = argv[1];
+    bb::Args a = bb::parse_args(argc, argv, 2);
+    if (cmd == "sign")  return bb::cmd_sign(a);
+    if (cmd == "match") return bb::cmd_match(a);
+    if (cmd == "self")  return bb::cmd_self(a);
+    if (cmd == "-h" || cmd == "--help" || cmd == "help") { bb::usage(); return 0; }
+    bb::usage();
