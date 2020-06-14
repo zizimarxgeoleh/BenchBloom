@@ -78,3 +78,17 @@ def cross_leakage(ref_index: Dict[str, Set[str]],
             trigger = ct if use_containment else jc
             if trigger >= threshold:
                 pairs.append(LeakPair(ref_id, sub_id, round(jc, 4), round(ct, 4)))
+    pairs.sort(key=lambda p: max(p.jaccard, p.containment), reverse=True)
+    return pairs
+
+
+def summarize(pairs: List[LeakPair], ref_count: int) -> Dict[str, float]:
+    """Aggregate a report: contaminated ref items, rates, and peak overlap."""
+    contaminated = {p.ref_id for p in pairs}
+    peak = max((max(p.jaccard, p.containment) for p in pairs), default=0.0)
+    return {
+        "ref_items": ref_count,
+        "flagged_pairs": len(pairs),
+        "contaminated_ref_items": len(contaminated),
+        "contamination_rate": round(len(contaminated) / ref_count, 4) if ref_count else 0.0,
+        "peak_overlap": round(peak, 4),
