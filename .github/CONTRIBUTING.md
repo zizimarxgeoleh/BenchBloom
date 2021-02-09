@@ -6,3 +6,7 @@ their spore prints. It never executes anything it reads and makes no network
 calls.
 
 ## Development setup
+
+- **Python 3.8+** - the orchestrator lives in `benchbloom/` and uses the
+  standard library only. There is nothing to install.
+- **A C++17 compiler** (`g++` or `clang++`) - the microscope lives in
