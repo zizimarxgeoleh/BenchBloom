@@ -10,3 +10,8 @@ calls.
 - **Python 3.8+** - the orchestrator lives in `benchbloom/` and uses the
   standard library only. There is nothing to install.
 - **A C++17 compiler** (`g++` or `clang++`) - the microscope lives in
+  `cpp/bloomdex.cpp` and is built directly, no CMake.
+
+```bash
+python -m compileall -q benchbloom
+make                       # or: bash cpp/build.sh
