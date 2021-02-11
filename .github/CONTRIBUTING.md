@@ -15,3 +15,7 @@ calls.
 ```bash
 python -m compileall -q benchbloom
 make                       # or: bash cpp/build.sh
+python -m benchbloom scan \
+  --ref examples/benchmark.jsonl \
+  --subject examples/training.jsonl \
+  --field text --ngram 4 --threshold 0.3
