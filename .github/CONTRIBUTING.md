@@ -19,3 +19,8 @@ python -m benchbloom scan \
   --ref examples/benchmark.jsonl \
   --subject examples/training.jsonl \
   --field text --ngram 4 --threshold 0.3
+```
+
+## Before you open a pull request
+
+1. `python -m compileall -q benchbloom` must pass and the example `scan` above
