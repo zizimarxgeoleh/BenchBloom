@@ -24,3 +24,7 @@ python -m benchbloom scan \
 ## Before you open a pull request
 
 1. `python -m compileall -q benchbloom` must pass and the example `scan` above
+   must keep flagging `b1`, `b2` and `b4`.
+2. The C++ engine must still compile cleanly if you touched `cpp/`:
+   `g++ -std=c++17 -O2 -Wall -Wextra -pedantic cpp/bloomdex.cpp -o cpp/bloomdex`
+3. Keep the package dependency-free; standard library only.
