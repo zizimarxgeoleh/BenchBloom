@@ -10,3 +10,7 @@ assignees: ""
 
 **What you expected**
 
+**Reproduce**
+
+The smallest corpora that trigger it, plus the command:
+
