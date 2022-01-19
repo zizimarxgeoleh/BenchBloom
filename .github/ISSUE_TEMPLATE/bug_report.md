@@ -14,3 +14,6 @@ assignees: ""
 
 The smallest corpora that trigger it, plus the command:
 
+```bash
+python -m benchbloom scan --ref ref.jsonl --subject sub.jsonl --field text --ngram 4 --threshold 0.3
+```
