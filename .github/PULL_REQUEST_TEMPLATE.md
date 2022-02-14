@@ -4,3 +4,4 @@
 
 ## Checklist
 
+- [ ] `python -m compileall -q benchbloom` passes
