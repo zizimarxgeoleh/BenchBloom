@@ -93,3 +93,18 @@ def load(path: str | Path, *, fields: Iterable[str] | None = None,
     if p.suffix.lower() in {".jsonl", ".json", ".ndjson"}:
         return list(read_jsonl(p, field_list, id_field))
     return list(read_text(p))
+
+
+def write_normalized(records: Iterable[Record], out_path: str | Path,
+                     *, strip_punct: bool = True) -> int:
+    """Write one normalized record per line; returns the count written.
+
+    This is the hand-off format consumed by the C++ `bloomdex sign` command.
+    """
+    out = Path(out_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    n = 0
+    with out.open("w", encoding="utf-8") as fh:
+        for rec in records:
+            norm = normalize(rec.text, strip_punct=strip_punct)
+            fh.write(norm + "\n")
