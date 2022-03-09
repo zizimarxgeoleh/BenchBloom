@@ -352,3 +352,4 @@ int main(int argc, char** argv) {
     if (cmd == "self")  return bb::cmd_self(a);
     if (cmd == "-h" || cmd == "--help" || cmd == "help") { bb::usage(); return 0; }
     bb::usage();
+    return 2;
