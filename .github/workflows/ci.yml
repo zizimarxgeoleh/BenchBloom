@@ -18,3 +18,8 @@ jobs:
 
       - name: Compile Python sources (syntax check)
         run: python -m compileall -q benchbloom
+
+      - name: Build C++ engine (g++)
+        run: g++ -std=c++17 -O2 -Wall -Wextra -pedantic cpp/bloomdex.cpp -o cpp/bloomdex
+
+      - name: Smoke test end-to-end orchestration
