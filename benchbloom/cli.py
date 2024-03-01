@@ -149,3 +149,26 @@ def build_parser() -> argparse.ArgumentParser:
 
     pi = sub.add_parser("index", help="orchestrate the C++ MinHash engine")
     pi.add_argument("--ref", required=True)
+    pi.add_argument("--subject", required=True)
+    pi.add_argument("--out")
+    pi.add_argument("--engine", help="path to bloomdex binary")
+    pi.add_argument("--workdir")
+    pi.add_argument("--k", type=int, default=128)
+    pi.add_argument("--threshold", type=float, default=0.5)
+    add_common(pi)
+    pi.set_defaults(func=_cmd_index)
+
+    pr = sub.add_parser("report", help="summarize a saved TSV match report")
+    pr.add_argument("input")
+    pr.add_argument("--top", type=int, default=10)
+    pr.set_defaults(func=_cmd_report)
+
+    return p
+
+
+def main(argv=None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return args.func(args)
+
+
