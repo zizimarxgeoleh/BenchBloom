@@ -28,3 +28,12 @@ make            # or: bash cpp/build.sh
 python -m benchbloom index \
   --ref examples/benchmark.jsonl \
   --subject examples/training.jsonl \
+  --field text --k 128 --ngram 4 --threshold 0.4 \
+  --out match.tsv
+
+# 3) render the report
+python -m benchbloom report match.tsv
+```
+
+The estimated Jaccard from MinHash will track (not exactly equal) the exact
+scan; raise `--k` to tighten the estimate.
