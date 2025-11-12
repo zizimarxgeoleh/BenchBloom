@@ -40,3 +40,13 @@
       <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
     </circle>
     <circle cx="258" cy="205" r="3">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="262" cy="130" r="3">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <text x="150" y="300" fill="#8fd6a0" font-family="monospace" font-size="12">reference</text>
+  <text x="320" y="300" fill="#f6a5c0" font-family="monospace" font-size="12">subject</text>
+</svg>
