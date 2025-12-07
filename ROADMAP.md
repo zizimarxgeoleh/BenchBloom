@@ -24,3 +24,8 @@ under "Planned" is aspirational and not yet built.
 - [ ] Streaming signature format with a compact binary encoding.
 - [ ] Multi-field weighting and per-field contamination attribution.
 - [ ] HTML report export with highlighted overlapping shingles.
+- [ ] Parallel signing across shards / threads in the C++ engine.
+
+Honesty note: performance claims for the C++ engine are qualitative
+("high-throughput streaming") — no formal benchmark suite ships yet, and none
+is claimed here.
