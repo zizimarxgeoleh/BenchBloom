@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# C++ engine artifacts
+cpp/bloomdex
+cpp/bloomdex.exe
+
+# Run outputs
+*.sig
+match.tsv
+*.norm.txt
+benchbloom_*/
