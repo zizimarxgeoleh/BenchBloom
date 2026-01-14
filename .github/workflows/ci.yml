@@ -23,3 +23,12 @@ jobs:
         run: g++ -std=c++17 -O2 -Wall -Wextra -pedantic cpp/bloomdex.cpp -o cpp/bloomdex
 
       - name: Smoke test end-to-end orchestration
+        run: |
+          python -m benchbloom index \
+            --ref examples/benchmark.jsonl \
+            --subject examples/training.jsonl \
+            --field text --k 128 --ngram 4 --threshold 0.4 \
+            --engine cpp/bloomdex --out match.tsv
+          python -m benchbloom report match.tsv
+
+# draft note 1282
