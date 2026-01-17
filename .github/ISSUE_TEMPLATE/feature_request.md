@@ -12,3 +12,9 @@ assignees: ""
 
 **Alternatives considered**
 
+**Does it change existing reports?**
+
+- [ ] Yes (describe the migration path)
+- [ ] No
+
+<!-- draft note 1286 -->
