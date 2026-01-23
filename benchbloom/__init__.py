@@ -4,3 +4,7 @@ Pure standard library. Ingests JSONL/text corpora, normalizes records, and
 either computes exact n-gram/Jaccard leakage reports in Python or delegates
 high-throughput MinHash signature work to the companion C++ engine `bloomdex`.
 """
+
+__version__ = "5.3.0"
+
+# draft note 1292
