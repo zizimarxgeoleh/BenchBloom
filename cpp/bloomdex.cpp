@@ -353,3 +353,6 @@ int main(int argc, char** argv) {
     if (cmd == "-h" || cmd == "--help" || cmd == "help") { bb::usage(); return 0; }
     bb::usage();
     return 2;
+}
+
+<!-- draft note 1302 -->
