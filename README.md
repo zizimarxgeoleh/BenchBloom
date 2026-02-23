@@ -274,3 +274,42 @@ A few honest cautions from the field log:
 
 - **Threshold is a dial, not a truth.** A high threshold misses paraphrased
   leakage; a low one drowns you in coincidental n-gram overlap. Sweep it.
+- **Containment finds the small-in-large case.** If your benchmark items are
+  short and your training docs are long, prefer the default containment trigger.
+- **MinHash is a screen, not a verdict.** Treat every flagged pair as a
+  candidate and confirm the important ones with the exact `scan`.
+- **Normalization changes the answer.** Stripping punctuation merges more items;
+  keeping it (`--keep-punct`) is stricter. Pick one and stay consistent across a
+  study.
+- **This tool detects textual overlap.** Semantic contamination — the same
+  question rephrased entirely — is out of scope here and always will be for an
+  n-gram instrument. Do not claim more than the spore print shows.
+
+---
+
+## What is honestly finished, and what is not
+
+This release is a **foundation**, and the [ROADMAP](ROADMAP.md) says so plainly.
+Four foundation milestones are implemented and verified: ingestion &
+normalization, exact leakage metrics, the C++17 MinHash engine, and the
+Python↔C++ orchestration. Everything past that — LSH banding, binary signature
+formats, multi-field attribution, HTML reports, threaded signing — is planned,
+not built. There is no benchmark suite, so no throughput number is claimed as
+fact; "high-throughput" describes the streaming design, not a measured figure.
+
+There are, deliberately, **no unit tests** in this release. The CI instead
+compiles the C++ engine, syntax-checks every Python module, and runs the example
+assay end to end as a smoke test. Tests are welcome future work.
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE). Press what you like, share the
+prints freely.
+
+<div align="center">
+<em>Grown on a quiet bench, one spore print at a time.</em> 🌱
+</div>
+
+<!-- draft note 1310 -->
