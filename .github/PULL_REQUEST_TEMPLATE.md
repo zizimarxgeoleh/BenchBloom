@@ -9,4 +9,4 @@
 - [ ] The C++ engine compiles cleanly (if `cpp/` was touched)
 - [ ] CHANGELOG updated under `[Unreleased]` for behavior changes
 
-<!-- draft note 1299 -->
+<!-- draft note 1312 -->
