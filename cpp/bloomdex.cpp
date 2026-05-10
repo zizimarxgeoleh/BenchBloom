@@ -354,5 +354,3 @@ int main(int argc, char** argv) {
     bb::usage();
     return 2;
 }
-
-<!-- draft note 1302 -->
