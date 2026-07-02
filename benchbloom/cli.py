@@ -172,3 +172,5 @@ def main(argv=None) -> int:
     return args.func(args)
 
 
+if __name__ == "__main__":
+    raise SystemExit(main())
