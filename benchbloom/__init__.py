@@ -6,5 +6,3 @@ high-throughput MinHash signature work to the companion C++ engine `bloomdex`.
 """
 
 __version__ = "5.3.0"
-
-# draft note 1292
