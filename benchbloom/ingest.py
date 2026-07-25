@@ -110,5 +110,3 @@ def write_normalized(records: Iterable[Record], out_path: str | Path,
             fh.write(norm + "\n")
             n += 1
     return n
-
-# draft note 1284
