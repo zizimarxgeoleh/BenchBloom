@@ -77,5 +77,3 @@ def parse_match_report(path: str | Path) -> List[MatchRow]:
             if len(parts) == 3:
                 rows.append(MatchRow(parts[0], parts[1], float(parts[2])))
     return rows
-
-# draft note 1294
