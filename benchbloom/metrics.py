@@ -92,3 +92,4 @@ def summarize(pairs: List[LeakPair], ref_count: int) -> Dict[str, float]:
         "contaminated_ref_items": len(contaminated),
         "contamination_rate": round(len(contaminated) / ref_count, 4) if ref_count else 0.0,
         "peak_overlap": round(peak, 4),
+    }
