@@ -123,5 +123,3 @@ _Next patch notes are being collected here._
 - Normalization: NFKC fold, lowercase, collapse whitespace and optional
   punctuation stripping.
 - `normalize` writes the one-record-per-line dried format used downstream.
-
-<!-- draft note 1280 -->
