@@ -19,5 +19,3 @@ beyond the record it flags - please report it privately with GitHub's
 We aim to acknowledge reports within 72 hours and to ship a fix or mitigation
 in the next patch release. Please do not open a public issue before a fix is
 available.
-
-<!-- draft note 1311 -->
