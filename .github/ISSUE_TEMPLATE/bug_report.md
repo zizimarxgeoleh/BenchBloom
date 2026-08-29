@@ -23,5 +23,3 @@ python -m benchbloom scan --ref ref.jsonl --subject sub.jsonl --field text --ngr
 - OS:
 - Python version (`python --version`):
 - C++ compiler and version (`g++ --version`), if the engine is involved:
-
-<!-- draft note 1320 -->
