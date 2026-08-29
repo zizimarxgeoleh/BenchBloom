@@ -30,5 +30,3 @@ jobs:
             --field text --k 128 --ngram 4 --threshold 0.4 \
             --engine cpp/bloomdex --out match.tsv
           python -m benchbloom report match.tsv
-
-# draft note 1307
