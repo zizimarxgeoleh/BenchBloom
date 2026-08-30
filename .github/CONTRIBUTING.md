@@ -28,3 +28,11 @@ python -m benchbloom scan \
 2. The C++ engine must still compile cleanly if you touched `cpp/`:
    `g++ -std=c++17 -O2 -Wall -Wextra -pedantic cpp/bloomdex.cpp -o cpp/bloomdex`
 3. Keep the package dependency-free; standard library only.
+4. Update the CHANGELOG under `[Unreleased]` for behavior changes.
+
+## Pull requests
+
+- One topic per pull request, conventional commit titles (`feat:`, `fix:`,
+  `docs:` ...).
+- Describe the motivation, not just the diff.
+- By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
