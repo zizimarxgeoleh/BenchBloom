@@ -273,7 +273,9 @@ find near-duplicates within one set. Run `bloomdex --help` for the exact flags.
 A few honest cautions from the field log:
 
 - **Threshold is a dial, not a truth.** A high threshold misses paraphrased
-  leakage; a low one drowns you in coincidental n-gram overlap. Sweep it.
+  leakage; a low one drowns you in coincidental n-gram overlap. Sweep it: run
+  0.3, 0.4 and 0.5 on the same pair of corpora and watch how the flagged-pair
+  count moves before trusting any single number.
 - **Containment finds the small-in-large case.** If your benchmark items are
   short and your training docs are long, prefer the default containment trigger.
 - **MinHash is a screen, not a verdict.** Treat every flagged pair as a
