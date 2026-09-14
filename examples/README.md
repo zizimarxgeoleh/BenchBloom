@@ -16,7 +16,9 @@ python -m benchbloom scan \
 ```
 
 You should see `b1`, `b2`, and `b4` flagged with high containment, and a
-`verdict:` line printed to stderr.
+`verdict:` line printed to stderr. Pass `--id-field id` to keep the item
+ids (`b1`, `b2`, `b4`) in the JSON pairs instead of the default line
+indexes.
 
 ## MinHash engine path (requires the C++ build)
 
