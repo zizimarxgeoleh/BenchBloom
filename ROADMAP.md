@@ -21,6 +21,7 @@ under "Planned" is aspirational and not yet built.
 ## Planned (not yet implemented)
 
 - [ ] LSH banding to prune the O(N·M) match loop toward near-linear behavior.
+- [ ] A `--summary` mode printing only the counts, for dashboards and CI logs.
 - [ ] Streaming signature format with a compact binary encoding.
 - [ ] Multi-field weighting and per-field contamination attribution.
 - [ ] HTML report export with highlighted overlapping shingles.
