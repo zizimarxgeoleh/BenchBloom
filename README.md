@@ -255,8 +255,9 @@ only the N strongest pairs in the JSON body.
 
 ### `benchbloom index`
 Full orchestration through the C++ engine. `--k` sets signature width, `--ngram`
-the shingle size, `--threshold` the estimated-Jaccard cutoff, `--engine` an
-explicit path to the binary, and `--workdir` a place to keep intermediates.
+the shingle size, `--threshold` the estimated-Jaccard cutoff, `--min-token`
+the shortest token kept, `--engine` an explicit path to the binary, and
+`--workdir` a place to keep intermediates.
 
 ### `benchbloom report`
 Render a saved `match.tsv` into a human summary with the strongest overlaps

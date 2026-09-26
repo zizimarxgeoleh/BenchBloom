@@ -71,8 +71,10 @@ def _cmd_index(args: argparse.Namespace) -> int:
 
     ref_sig = workdir / "ref.sig"
     sub_sig = workdir / "subject.sig"
-    print(engine.sign(eng, str(ref_norm), str(ref_sig), k=args.k, ngram=args.ngram))
-    print(engine.sign(eng, str(sub_norm), str(sub_sig), k=args.k, ngram=args.ngram))
+    print(engine.sign(eng, str(ref_norm), str(ref_sig), k=args.k, ngram=args.ngram,
+                      min_token=args.min_token))
+    print(engine.sign(eng, str(sub_norm), str(sub_sig), k=args.k, ngram=args.ngram,
+                      min_token=args.min_token))
 
     match_out = Path(args.out) if args.out else workdir / "match.tsv"
     print(engine.match(eng, str(ref_sig), str(sub_sig), str(match_out),
@@ -155,6 +157,8 @@ def build_parser() -> argparse.ArgumentParser:
     pi.add_argument("--workdir")
     pi.add_argument("--k", type=int, default=128)
     pi.add_argument("--threshold", type=float, default=0.5)
+    pi.add_argument("--min-token", type=int, default=1,
+                    help="drop tokens shorter than N before shingling")
     add_common(pi)
     pi.set_defaults(func=_cmd_index)
 
