@@ -100,7 +100,8 @@ def _cmd_report(args: argparse.Namespace) -> int:
     print(f"flagged pairs        : {len(rows)}")
     print(f"contaminated ref ids : {len(contaminated)}")
     if rows:
-        top = sorted(rows, key=lambda r: r.jaccard, reverse=True)[: args.top]
+        ordered = sorted(rows, key=lambda r: r.jaccard, reverse=True)
+        top = ordered[: args.top] if args.top > 0 else ordered
         print("top overlaps:")
         for r in top:
             print(f"  {r.ref_id:>10}  <->  {r.subject_id:<10}  jaccard={r.jaccard:.3f}")
@@ -164,7 +165,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     pr = sub.add_parser("report", help="summarize a saved TSV match report")
     pr.add_argument("input")
-    pr.add_argument("--top", type=int, default=10)
+    pr.add_argument("--top", type=int, default=10, help="rows to print; 0 = all")
     pr.set_defaults(func=_cmd_report)
 
     return p
