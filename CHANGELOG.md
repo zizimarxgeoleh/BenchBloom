@@ -6,7 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-_Next patch notes are being collected here._
+### Added
+- `index` accepts `--min-token` and passes it through to the engine, so short
+  stop-word tokens can be dropped before shingling.
+
+### Fixed
+- `report --top 0` prints every row, matching the `scan` convention where 0
+  means "no limit".
 
 ## [5.3.0] - 2026-08-18
 
