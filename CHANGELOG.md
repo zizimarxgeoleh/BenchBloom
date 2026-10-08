@@ -13,6 +13,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 - `report --top 0` prints every row, matching the `scan` convention where 0
   means "no limit".
+- The bundled C++ engine was missing the `<unordered_map>` include and failed
+  to build on strict toolchains.
 
 ## [5.3.0] - 2026-08-18
 
