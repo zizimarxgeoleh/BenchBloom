@@ -23,6 +23,7 @@ You should see `b1`, `b2`, and `b4` flagged with high containment, and a
 ```bash
 # 1) build the engine
 make            # or: bash cpp/build.sh
+# the botanist finds cpp/bloomdex on its own; --engine only for unusual paths
 
 # 2) orchestrate normalize -> sign -> match through bloomdex
 python -m benchbloom index \
