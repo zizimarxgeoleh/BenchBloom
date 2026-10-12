@@ -261,7 +261,8 @@ the shortest token kept, `--engine` an explicit path to the binary, and
 
 ### `benchbloom report`
 Render a saved `match.tsv` into a human summary with the strongest overlaps
-listed first.
+listed first. `--top N` limits the printed list; the counts at the top always
+cover the whole file.
 
 ### `bloomdex sign | match | self`
 The microscope's three lenses: build signatures, compare two signature sets, and
